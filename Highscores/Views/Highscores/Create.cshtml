@@ -1,0 +1,36 @@
+﻿@model Highscores.Models.ViewModels.CreateHighscoreViewModel
+
+<section>
+    <form asp-controller="Highscores" asp-action="Create" method="post">
+        <h2>Register highscore</h2>
+        <div>
+            <label asp-for="Game">Game:</label>
+            <select asp-for="Game">
+                @foreach (var game in Model.Games)
+                {
+                    <option>@game.Name</option>
+                }
+            </select>
+            <span asp-validation-for="Game"></span>
+        </div>
+
+        <div>
+            <label asp-for="Player"></label>
+            <input asp-for="Player">
+            <span asp-validation-for="Player"></span>
+        </div>
+
+        <div>
+            <label asp-for="Date"></label>
+            <input asp-for="Date">
+            <span asp-validation-for="Date"></span>
+        </div>
+
+        <div>
+            <label asp-for="Score"></label>
+            <input asp-for="Score">
+            <span asp-validation-for="Score"></span>
+        </div>
+        <button type="submit" value="Register">Register</button>
+    </form>
+</section>

@@ -1,0 +1,40 @@
+﻿@using Highscores.Data.Entities
+@model Game 
+
+<div class="game-details-container">
+    <h1>@Model.Name</h1>
+    
+    <div class="game-details-inner-container">
+        <div class="game-details">
+            <div class="description">
+                @Model.Description
+            </div>
+            <div class="genre">
+                Genre: @Model.Genre
+            </div>
+            <div class="release-year">
+                Release year: @Model.ReleaseYear
+            </div>
+        </div>
+        <div class="game-image">
+            <img src="@Model.ImageUrl" alt="@Model.Name" />
+        </div>
+    </div>
+    
+    <div class="highscores">
+        <h2>Leaderbord</h2>
+        <div class="highscore-card-grid">
+            @foreach (var highscore in Model.Highscores)
+            {
+                <div class="highscore-card">
+                    <div class="details">
+                        @highscore.Player.Name, @highscore.Date.ToShortDateString()
+                    </div>
+                    <div>
+                        <h3>@highscore.Score</h3>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

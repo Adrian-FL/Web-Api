@@ -1,0 +1,24 @@
+﻿@using Highscores.Data.Entities
+@model IEnumerable<Highscore>
+
+<div class="games">
+    <a href="highscores/new" class="register-highscore-button">Register highscore</a>
+    <div class="game-card-grid">
+        @foreach (var highscore in Model)
+        {
+            <div class="product-card">
+                <div class="product-card-details">
+                    <a href="games/@highscore.Game.UrlSlug" class="name">
+                        @highscore.Game.Name
+                    </a>
+                    <div class="details">
+                      @highscore.Player.Name, @highscore.Date.ToShortDateString()
+                    </div>
+                </div>
+                <div>
+                    <h2>@highscore.Score</h2>
+                </div>
+            </div>
+        }
+    </div>
+</div>
